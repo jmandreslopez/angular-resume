@@ -1,0 +1,137 @@
+// .row {
+// 	max-width:1250px;
+// 	padding:100px 40px;
+
+// 	.large-6,
+//     .large-12 {
+// 		padding:0 2px;
+
+// 		h3 {
+// 			font-size:20px;
+// 			font-weight:600;
+// 			margin:0 auto 5px;
+// 			letter-spacing:1px;
+// 			text-transform:uppercase;
+// 		}
+
+// 		p {
+// 			line-height:1.2;
+// 			margin:0 auto 5px;
+// 		}
+
+// 		form {
+// 			margin:10px auto;
+
+//             .row {
+//                 padding: 0;
+//             }
+
+// 			input,
+// 			textarea {
+// 				width:100%;
+// 				padding:15px;
+// 				margin:2px 0;
+// 				border-radius:5px;
+// 				border:1px solid #DDD;
+// 			}
+
+// 			[type='email'] {
+// 				width:100%;
+// 				height:inherit;
+// 				box-shadow:none;
+// 			}
+
+// 			textarea {
+// 				width:100%;
+// 				margin:5px auto;
+// 				box-shadow:none;
+// 				min-height:150px;
+// 			}
+
+// 			span {
+// 				color:$brand-green;
+// 				display:block;
+// 				font-size:20px;
+// 				text-align:left;
+// 				font-weight:600;
+// 				text-transform:uppercase;
+// 			}
+
+// 			.amazing-btn {
+// 				color:#FFF;
+// 				font-size:15px;
+// 				font-weight:600;
+// 				margin:5px auto;
+// 				border-radius:3px;
+// 				padding:20px 60px;
+// 				letter-spacing:2px;
+// 				text-transform:uppercase;
+// 				background-color:$brand-orange;
+// 				@include transition(all .5s ease-in-out);
+
+// 				&:hover {
+// 					background:#313131;
+// 					@include transition(all .5s ease-in-out);
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// .ng-valid[required], .ng-valid.required  {
+// 	border-left:5px solid $brand-green;
+// }
+
+// .ng-invalid:not(form)  {
+// 	border-left:5px solid $brand-red;
+// }
+
+// .form-error {
+// 	display:block;
+// 	margin:0 auto;
+// }
+
+// ::-ms-reveal {
+//     display: none;
+// }
+
+// /*-----------------------------------*/
+// /* Media Queries
+// /*-----------------------------------*/
+// @media screen and (min-width:1345px) {
+// 	.row {
+// 		padding:100px 0;
+// 	}
+// }
+
+// @media screen and (min-width:1023px) {
+// 	.row {
+// 		.large-6 {
+// 			h3 {
+// 				margin:30px auto 0;
+// 			}
+// 		}
+// 	}
+// }
+
+// @media screen and (max-width:790px) {
+// 	.row {
+// 		padding:100px 20px;
+// 	}
+// }
+
+// @media screen and (max-width:630px) {
+// 	.row {
+// 		.large-6 {
+// 			form {
+// 				input,
+// 				textarea {
+// 					width:100%;
+// 				}
+// 				.amazing-btn {
+// 					width:100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }

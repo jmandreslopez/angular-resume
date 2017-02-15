@@ -1,0 +1,30 @@
+:host {
+    padding: 40px 0;
+    display: block;
+    background: #f5f5f5;
+}
+
+.profile {
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin: 0 auto;
+    background: url('../../../../assets/images/pepe.png') no-repeat top center;
+    background-position: 0 -20px;
+    background-size: cover;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.greeting {
+    font-size: 45px;
+    font-weight: bold;
+    padding-top: 40px;
+
+    .html {
+        font-size: 45px;
+        color: #999;
+        font-weight: initial;
+    }
+}

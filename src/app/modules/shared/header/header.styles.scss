@@ -1,0 +1,88 @@
+:host {
+    display: block;
+    height: 60px;
+}
+
+.navbar {
+
+    .logo {
+        display: block;
+        margin: 10px 5px 0 0;
+        padding: 0;
+        text-align: center;
+        color: #101010;
+        background: #FFF;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+    }
+
+    .navbar-right {
+        li {
+            a {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+
+        .networks {
+            margin-left: 10px;
+
+            a {
+                // color: $header-logo-background;
+                color: #FFF;
+                padding: 20px 5px;
+
+                // .fa {
+                //     padding: 5px 10px;
+                //     display: inline-block;
+                //     -moz-border-radius: 100px;
+                //     -webkit-border-radius: 100px;
+                //     border-radius: 100px;
+                //     -moz-box-shadow: 0px 0px 2px #888;
+                //     -webkit-box-shadow: 0px 0px 2px #888;
+                //     box-shadow: 0px 0px 2px #888;
+                // }
+
+                .fa-stack-1x {
+                    color: #000;
+                }
+
+                .fa-stack-2x {
+                    color: #FFF;
+                }
+
+                .fa-lg {
+                    font-size: 1.4em;
+                }
+
+                // .fa-codepen,
+                // .fa-facebook {
+                //     font-size: 1.3em;
+                // }
+
+                // .fa-envelope-o {
+                //     font-size: 1.5em;
+                // }
+
+                // .fa-twitter {
+                //     font-size: 1.6em;
+                //     line-height: 20px;
+                // }
+            }
+        }
+
+        // padding: 15px;
+
+        // a {
+        //     margin-left: 10px;
+        //     color: #777;
+        // }
+    }
+}

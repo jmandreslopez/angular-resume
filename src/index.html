@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<title>Jose M Andres</title>
+		<meta charset="UTF-8">
+
+        <!-- base url -->
+        <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+	</head>
+	<body>
+        <app>Loading...</app>
+
+		<% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+            <!-- Webpack Dev Server reload -->
+            <script src="/webpack-dev-server.js"></script>
+        <% } %>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+
+/*-----------------------------------*/
+/* Mixins
+/*-----------------------------------*/
+
+@mixin transition($value) {
+	transition:$value;
+	-o-transition:$value;
+	-ms-transition:$value;
+	-moz-transition:$value;
+	-webkit-transition:$value;
+}
+
+@mixin animation($value) {
+	animation:$value;
+	-o-animation:$value;
+	-ms-animation:$value;
+	-moz-animation:$value;
+	-webkit-animation:$value;
+}
+
+@mixin transform($value) {
+	transform:$value;
+	-o-transform:$value;
+	-ms-transform:$value;
+	-moz-transform:$value;
+	-webkit-transform:$value;
+}
+
+@mixin translate($value1, $value2) {
+	transform:translate($value1,$value2);
+	-o-transform:translate($value1,$value2);
+	-moz-transform:translate($value1,$value2);
+	-webkit-transform:translate($value1,$value2);
+}
+
+@mixin filter($value) {
+	filter:grayscale($value);
+	-o-filter:grayscale($value);
+	-ms-filter:grayscale($value);
+	-moz-filter:grayscale($value);
+	-webkit-filter:grayscale($value);
+}
+
+@mixin translateY($value) {
+	@include transform(translateY($value));
+}
+
+@mixin vertical-align($position: relative) {
+	top:50%;
+	position:$position;
+	@include translateY(-50%);
+}
+
+@mixin transform-scale($to,$from) {
+	transform:scale($to,$from);
+	-ms-transform:scale($to,$from);
+	-webkit-transform:scale($to,$from);
+}
+
+@mixin transform-origin($origin) {
+	transform-origin:$origin;
+	-ms-transform-origin:$origin;
+	-webkit-transform-origin:$origin;
+}
+
+@mixin rotate($value) {
+	@include transform(rotate($value));
+}
+
+@mixin box-shadow($value) {
+	box-shadow:$value;
+	-o-box-shadow:$value;
+	-ms-box-shadow:$value;
+	-moz-box-shadow:$value;
+	-webkit-box-shadow:$value;
+}
