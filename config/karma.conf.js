@@ -67,12 +67,8 @@ module.exports = function(config) {
          * Webpack please don't spam the console when running in karma!
          */
         webpackMiddleware: {
-            // webpack-dev-middleware configuration
-            // i.e.
             noInfo: true,
-            // and use stats to turn off verbose output
             stats: {
-                // options i.e.
                 chunks: false
             }
         },
@@ -80,7 +76,6 @@ module.exports = function(config) {
         /**
          * Test results reporter to use
          *
-         * Possible values: 'dots', 'progress'
          * Available reporters: https://npmjs.org/browse/keyword/karma-reporter
          */
         reporters: ['mocha', 'coverage', 'remap-coverage'],

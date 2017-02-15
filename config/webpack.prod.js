@@ -6,6 +6,7 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
  * Webpack Plugins
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -13,6 +14,7 @@ const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplaceme
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
 /**
@@ -36,6 +38,15 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
 module.exports = function (env) {
 
     return webpackMerge(commonConfig({env: ENV}), {
+
+        /**
+         * Cache generated modules and chunks to improve performance for multiple incremental builds.
+         * This is enabled by default in watch mode.
+         * You can pass false to disable it.
+         *
+         * See: http://webpack.github.io/docs/configuration.html#cache
+         */
+        cache: true,
 
         /**
          * Developer tool to enhance debugging
@@ -68,68 +79,12 @@ module.exports = function (env) {
             filename: 'assets/js/[name].[chunkhash].bundle.js',
 
             /**
-             * The filename of the SourceMaps for the JavaScript files.
-             * They are inside the output.path directory.
-             *
-             * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
-             */
-            sourceMapFilename: 'assets/js/[file].map',
-
-            /**
              * The filename of non-entry chunks as relative path
              * inside the output.path directory.
              *
              * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
              */
-            chunkFilename: 'assets/js/[id].[chunkhash].chunk.js'
-
-        },
-
-        /**
-         * Options affecting the normal modules.
-         *
-         * See: http://webpack.github.io/docs/configuration.html#module
-         */
-        module: {
-
-            /**
-             * An array of applied pre and post loaders.
-             *
-             * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
-             */
-            rules: [
-
-                /**
-                 * Raw loader support for *.css files
-                 * Returns file content as string
-                 *
-                 * See: https://github.com/webpack/raw-loader
-                 */
-                {
-                    test: /\.css$/,
-                    loader: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: 'css-loader'
-                    }),
-                    include: [helpers.root('src', 'styles')]
-                },
-
-                /**
-                 * Sass loader support for *.scss files
-                 * Returns file content ascle
-                 *
-                 * See: https://github.com/jtangelder/sass-loader
-                 */
-                {
-                    test: /\.scss$/,
-                    use: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: 'css-loader!sass-loader'
-                    }),
-                    include: [helpers.root('src', 'styles')]
-                },
-
-            ]
+            chunkFilename: 'assets/js/[id].[hash].chunk.js',
 
         },
 
@@ -141,8 +96,17 @@ module.exports = function (env) {
         plugins: [
 
             /**
-             * Webpack plugin to optimize a JavaScript file for faster initial load
-             * by wrapping eagerly-invoked functions.
+             * Plugin: NoEmitOnErrorsPlugin
+             *
+             * See: https://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
+             */
+            new NoEmitOnErrorsPlugin(),
+
+            /**
+             * Plugin: OptimizeJsPlugin
+             * Description: Webpack plugin to optimize a JavaScript
+             * file for faster initial load by wrapping eagerly-invoked
+             * functions.
              *
              * See: https://github.com/vigneshshanmugam/optimize-js-plugin
              */
@@ -235,6 +199,21 @@ module.exports = function (env) {
             new CompressionPlugin({
                 regExp: /\.css$|\.html$|\.js$|\.map$/,
                 threshold: 2 * 1024
+            }),
+
+            /**
+             * Plugin: BrotliPlugin
+             * Description: Compresses assets with Brotli compression
+             * algorithm using iltorb library for serving it with
+             * ngx_brotli or such.
+             *
+             * See: https://github.com/mynameiswhm/brotli-webpack-plugin
+             */
+            new BrotliPlugin({
+                asset: '[path].br[query]',
+                test: /\.(js|css|html|svg)$/,
+                threshold: 10240,
+                minRatio: 0.8
             }),
 
             /**

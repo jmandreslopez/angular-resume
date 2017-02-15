@@ -150,17 +150,17 @@ module.exports = function(options) {
                         'to-string-loader',
                         'css-loader',
                         'sass-loader',
-                        // {
-                        //     loader: 'sass-resources-loader',
-                        //     options: {
-                        //         resources: [
-                        //             helpers.root('src/assets/sass/variables.scss'),
-                        //             helpers.root('src/assets/sass/mixins.scss'),
-                        //         ]
-                        //     },
-                        // },
+                        {
+                            loader: 'sass-resources-loader',
+                            options: {
+                                resources: [
+                                    helpers.root('src/assets/sass/variables.scss'),
+                                    helpers.root('src/assets/sass/mixins.scss'),
+                                ]
+                            },
+                        },
                     ],
-                    exclude: [helpers.root('src')]
+                    exclude: [helpers.root('src', 'styles')]
                 },
 
                 /**
@@ -233,10 +233,7 @@ module.exports = function(options) {
             new ContextReplacementPlugin(
                 // The (\\|\/) piece accounts for path separators in *nix and Windows
                 /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-                helpers.root('src'), // location of your src
-                {
-                    // your Angular Async Route paths relative to this root directory
-                }
+                helpers.root('src')
             ),
 
             /**
@@ -247,7 +244,7 @@ module.exports = function(options) {
             new LoaderOptionsPlugin({
                 debug: false,
                 options: {
-                    // Legacy options go here
+                    context: helpers.root('.')
                 }
             }),
 

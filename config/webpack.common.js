@@ -15,6 +15,7 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
 const DotenvPlugin = require('webpack-dotenv-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /**
  * Webpack Constants
@@ -36,15 +37,6 @@ module.exports = function(options) {
     isProd = options.env === 'production';
 
     return {
-
-        /**
-         * Cache generated modules and chunks to improve performance for multiple incremental builds.
-         * This is enabled by default in watch mode.
-         * You can pass false to disable it.
-         *
-         * See: http://webpack.github.io/docs/configuration.html#cache
-         */
-        cache: true,
 
         /**
          * The entry point for the bundle
@@ -310,10 +302,7 @@ module.exports = function(options) {
             new ContextReplacementPlugin(
                 // The (\\|\/) piece accounts for path separators in *nix and Windows
                 /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-                helpers.root('src'), // location of your src
-                {
-                    // your Angular Async Route paths relative to this root directory
-                }
+                helpers.root('src')
             ),
 
             /**
@@ -392,13 +381,32 @@ module.exports = function(options) {
                 /facade(\\|\/)math/,
                 helpers.root('node_modules/@angular/core/src/facade/math.js')
             ),
+
             new ngcWebpack.NgcWebpackPlugin({
                 disabled: !AOT,
                 tsConfig: helpers.root('tsconfig.webpack.json'),
                 resourceOverride: helpers.root('config/resource-override.js')
             }),
 
+            /**
+             * Plugin: BundleAnalyzerPlugin
+             * Description: Utility that represents bundle content as
+             * convenient interactive zoomable treemap
+             *
+             * See: https://github.com/th0r/webpack-bundle-analyzer
+             */
+            // new BundleAnalyzerPlugin()
+
         ],
+
+        /**
+         * Disable performance hints
+         *
+         * See: https://github.com/a-tarasyuk/rr-boilerplate/blob/master/webpack/dev.config.babel.js#L41
+         */
+        performance: {
+            hints: false
+        },
 
         /**
          * Include polyfills or mocks for various node stuff

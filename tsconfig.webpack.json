@@ -19,8 +19,15 @@
       "node_modules/@types"
     ],
     "types": [
+      "node",
+      "source-map",
+      "uglify-js",
+      "webpack",
       "hammerjs",
-      "node"
+      "karma",
+      "jasmine",
+      "jasmine-matchers",
+      "jasmine-expect"
     ]
   },
   "exclude": [
