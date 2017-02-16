@@ -1,4 +1,6 @@
+import * as _ from 'lodash';
 import { Component } from '@angular/core';
+import { HelpersService, SeoService } from '../../../services';
 
 @Component({
     selector: 'greeting',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
     styleUrls: ['greeting.styles.scss']
 })
 export class GreetingComponent {
-    //
+
+    constructor(private helpersService: HelpersService,
+                private seoService: SeoService) {
+        //
+    }
+
+    public trackEnter() {
+        this.helpersService.changeUrl('');
+    }
 }

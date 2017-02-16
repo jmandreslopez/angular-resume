@@ -12,7 +12,7 @@ export class ScrollService {
                 private seoService: SeoService) {
 
         // PageScroll configuration
-        PageScrollConfig.defaultScrollOffset = 50; // pixels
+        PageScrollConfig.defaultScrollOffset = 80; // pixels
         PageScrollConfig.defaultDuration = 1250; // miliseconds
         PageScrollConfig.defaultEasingLogic = {
             ease: (t: number, b: number, c: number, d: number): number => {
@@ -44,7 +44,6 @@ export class ScrollService {
 
             // Updating the URL and Title with the new "route"
             this.helpersService.changeUrl(target);
-            this.seoService.setTitle(_.capitalize(target));
         }
     }
 }

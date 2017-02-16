@@ -89,6 +89,65 @@ module.exports = function (env) {
         },
 
         /**
+         * Options affecting the normal modules.
+         *
+         * See: http://webpack.github.io/docs/configuration.html#module
+         */
+        module: {
+
+            /**
+             * An array of applied pre and post loaders.
+             *
+             * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
+             */
+            rules: [
+
+                /**
+                 * Raw loader support for *.css files
+                 * Returns file content as string
+                 *
+                 * See: https://github.com/webpack/raw-loader
+                 */
+                {
+                    test: /\.css$/,
+                    loader: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: 'css-loader'
+                    }),
+                    include: [helpers.root('src', 'styles')]
+                },
+
+                /**
+                 * Sass loader support for *.scss files
+                 * Returns file content ascle
+                 *
+                 * See: https://github.com/jtangelder/sass-loader
+                 */
+                {
+                    test: /\.scss$/,
+                    loader: ExtractTextPlugin.extract({
+                        fallback: 'raw-loader',
+                        use: [
+                            'sass-loader',
+                            {
+                                loader: 'sass-resources-loader',
+                                options: {
+                                    resources: [
+                                        helpers.root('src/assets/sass/variables.scss'),
+                                        helpers.root('src/assets/sass/mixins.scss'),
+                                    ]
+                                },
+                            },
+                        ]
+                    }),
+                    include: [helpers.root('src', 'styles')]
+                },
+
+            ]
+
+        },
+
+        /**
          * Add additional plugins to the compiler.
          *
          * See: http://webpack.github.io/docs/configuration.html#plugins

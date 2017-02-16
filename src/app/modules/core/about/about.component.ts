@@ -1,6 +1,6 @@
+import * as _ from 'lodash';
 import { Component } from '@angular/core';
-
-// let base64 = require('base64-loader!./pepe.png');
+import { HelpersService, SeoService } from '../../../services';
 
 @Component({
     selector: 'about',
@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
     styleUrls: ['about.styles.scss']
 })
 export class AboutComponent {
-    // public image: string = require('base64-inline-loader!./pepe.png');
 
-    // constructor() {
-    //     console.log(this.image);
-    // }
+    constructor(private helpersService: HelpersService,
+                private seoService: SeoService) {
+        //
+    }
+
+    public trackEnter() {
+        this.helpersService.changeUrl('about');
+    }
 }

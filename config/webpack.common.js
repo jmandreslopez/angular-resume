@@ -218,7 +218,7 @@ module.exports = function(options) {
                  */
                 {
                     test: /\.(woff|woff2|ttf|eot|svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
-                    loader: 'url-loader?limit=100000'
+                    use: 'file-loader'
                 }
 
             ]

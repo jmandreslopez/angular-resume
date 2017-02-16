@@ -16,6 +16,9 @@ import { FooterComponent } from './footer';
 import { AngularLogoComponent } from './footer';
 import { WebpackLogoComponent } from './footer';
 
+// Directives
+import { TrackScrollDirective } from '../../directives';
+
 // Providers
 import { providers } from './shared.providers';
 
@@ -39,11 +42,14 @@ import { providers } from './shared.providers';
         // Vendors
         Parallax,
 
-        // App
+        // Components
         HeaderComponent,
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
+
+        // Directives
+        TrackScrollDirective,
     ],
     exports: [
 
@@ -60,11 +66,14 @@ import { providers } from './shared.providers';
         // Vendors
         Parallax,
 
-        // App
+        // Components
         HeaderComponent,
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
+
+        // Directives
+        TrackScrollDirective,
     ],
     providers: [providers]
 })
