@@ -14,7 +14,7 @@ export class AboutComponent {
         //
     }
 
-    public trackEnter() {
+    public trackScrollEnter() {
         this.helpersService.changeUrl('about');
     }
 }

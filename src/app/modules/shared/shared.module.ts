@@ -9,15 +9,13 @@ import { Parallax } from 'ng2-parallax/src/ts/parallax.directive';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { TooltipModule } from 'ng2-bootstrap';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { Ng2TrackScrollModule } from 'ng2-track-scroll';
 
-// Components
+// Declarations
 import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { AngularLogoComponent } from './footer';
 import { WebpackLogoComponent } from './footer';
-
-// Directives
-import { TrackScrollDirective } from '../../directives';
 
 // Providers
 import { providers } from './shared.providers';
@@ -36,20 +34,18 @@ import { providers } from './shared.providers';
         Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
         TooltipModule.forRoot(),
         Ng2PageScrollModule.forRoot(),
+        Ng2TrackScrollModule.forRoot(),
     ],
     declarations: [
 
         // Vendors
         Parallax,
 
-        // Components
+        // App
         HeaderComponent,
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
-
-        // Directives
-        TrackScrollDirective,
     ],
     exports: [
 
@@ -62,18 +58,16 @@ import { providers } from './shared.providers';
         Angulartics2Module,
         TooltipModule,
         Ng2PageScrollModule,
+        Ng2TrackScrollModule,
 
         // Vendors
         Parallax,
 
-        // Components
+        // App
         HeaderComponent,
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
-
-        // Directives
-        TrackScrollDirective,
     ],
     providers: [providers]
 })

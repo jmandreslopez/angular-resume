@@ -14,7 +14,7 @@ export class BackgroundComponent {
         //
     }
 
-    public trackEnter() {
+    public trackScrollEnter() {
         this.helpersService.changeUrl('background');
     }
 }

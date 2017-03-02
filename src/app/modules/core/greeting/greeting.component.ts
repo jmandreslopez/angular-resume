@@ -14,7 +14,7 @@ export class GreetingComponent {
         //
     }
 
-    public trackEnter() {
+    public trackScrollEnter() {
         this.helpersService.changeUrl('');
     }
 }

@@ -14,7 +14,7 @@ export class SkillsComponent {
         //
     }
 
-    public trackEnter() {
+    public trackScrollEnter() {
         this.helpersService.changeUrl('skills');
     }
 }
