@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../modules';
 import { BlogComponent } from '../modules';
 import { AboutComponent } from '../modules';
-import { ResumeComponent } from '../modules';
 import { ContactComponent } from '../modules';
 import { NotFoundComponent } from '../modules';
 
@@ -28,8 +27,8 @@ const APP_ROUTES: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'resume',
-        component: ResumeComponent,
+        path: 'contact',
+        component: ContactComponent,
     },
     {
         path: '404',

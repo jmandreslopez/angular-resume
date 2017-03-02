@@ -1,6 +1,5 @@
-import * as _ from 'lodash';
 import { Component } from '@angular/core';
-import { HelpersService, SeoService } from '../../../services';
+import { HelpersService } from '../../../../services';
 
 @Component({
     selector: 'about',
@@ -9,8 +8,7 @@ import { HelpersService, SeoService } from '../../../services';
 })
 export class AboutComponent {
 
-    constructor(private helpersService: HelpersService,
-                private seoService: SeoService) {
+    constructor(private helpersService: HelpersService) {
         //
     }
 

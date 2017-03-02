@@ -5,15 +5,12 @@ import { SharedModule } from '../shared';
 
 // Components
 import { HomeComponent } from './home';
-import { GreetingComponent } from './greeting';
-import { SkillsComponent } from './skills';
-import { BackgroundComponent } from './background';
-
-import { BlogComponent } from './blog';
-import { AboutComponent } from './about';
-import { ResumeComponent } from './resume';
-import { ContactComponent } from './contact';
-import { ContactFormComponent } from './contact';
+import { GreetingComponent } from './home';
+import { AboutComponent } from './home';
+import { SkillsComponent } from './home';
+import { BackgroundComponent } from './home';
+import { ContactComponent } from './home';
+import { ContactFormComponent } from './home';
 import { NotFoundComponent } from './not-found';
 
 // Providers
@@ -24,12 +21,9 @@ import { providers } from './core.providers';
     declarations: [
         HomeComponent,
         GreetingComponent,
+        AboutComponent,
         SkillsComponent,
         BackgroundComponent,
-
-        BlogComponent,
-        AboutComponent,
-        ResumeComponent,
         ContactComponent,
         ContactFormComponent,
         NotFoundComponent,
