@@ -16,6 +16,11 @@ import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { AngularLogoComponent } from './footer';
 import { WebpackLogoComponent } from './footer';
+import { CodepenComponent } from './social';
+import { FacebookComponent } from './social';
+import { GitHubComponent } from './social';
+import { LinkedinComponent } from './social';
+import { TwitterComponent } from './social';
 
 // Providers
 import { providers } from './shared.providers';
@@ -46,6 +51,11 @@ import { providers } from './shared.providers';
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
+        CodepenComponent,
+        FacebookComponent,
+        GitHubComponent,
+        LinkedinComponent,
+        TwitterComponent,
     ],
     exports: [
 
@@ -68,6 +78,11 @@ import { providers } from './shared.providers';
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
+        CodepenComponent,
+        FacebookComponent,
+        GitHubComponent,
+        LinkedinComponent,
+        TwitterComponent,
     ],
     providers: [providers]
 })

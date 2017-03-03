@@ -10,7 +10,6 @@ import { AboutComponent } from './home';
 import { SkillsComponent } from './home';
 import { BackgroundComponent } from './home';
 import { ContactComponent } from './home';
-import { ContactFormComponent } from './home';
 import { NotFoundComponent } from './not-found';
 
 // Providers
@@ -25,7 +24,6 @@ import { providers } from './core.providers';
         SkillsComponent,
         BackgroundComponent,
         ContactComponent,
-        ContactFormComponent,
         NotFoundComponent,
     ],
     providers: [providers]

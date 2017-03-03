@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ScrollService } from '../../../services';

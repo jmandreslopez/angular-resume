@@ -9,7 +9,7 @@ import { HelpersService } from '../../../../services';
 export class ContactComponent {
     public trackScrollConfig = {
         position: 'bottom',
-        offset: 100
+        offset: 150
     };
 
     constructor(private helpersService: HelpersService) {
@@ -18,5 +18,15 @@ export class ContactComponent {
 
     public trackScrollEnter() {
         this.helpersService.changeUrl('contact');
+    }
+
+    public trackScrollLeave() {
+
+        // This is an special case, because in order to work
+        // properly we change the position of the tracker
+        // to the bottom and in some cases, when scrolling
+        // up the background section is still active preventing
+        // to trigger the URL change
+        this.helpersService.changeUrl('background');
     }
 }

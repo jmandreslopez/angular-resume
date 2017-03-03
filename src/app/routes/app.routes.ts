@@ -3,9 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { HomeComponent } from '../modules';
-import { BlogComponent } from '../modules';
-import { AboutComponent } from '../modules';
-import { ContactComponent } from '../modules';
 import { NotFoundComponent } from '../modules';
 
 const APP_ROUTES: Routes = [
@@ -28,7 +25,7 @@ const APP_ROUTES: Routes = [
     },
     {
         path: 'contact',
-        component: ContactComponent,
+        component: HomeComponent,
     },
     {
         path: '404',

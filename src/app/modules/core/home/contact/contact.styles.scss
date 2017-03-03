@@ -1,4 +1,11 @@
 :host {
-    padding-top: 50px;
     display: block;
+}
+
+.row {
+    padding: 50px 0;
+
+    a {
+        width: 100%;
+    }
 }
