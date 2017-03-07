@@ -10,17 +10,16 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { TooltipModule } from 'ng2-bootstrap';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { Ng2TrackScrollModule } from 'ng2-track-scroll';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 
 // Declarations
 import { HeaderComponent } from './header';
 import { FooterComponent } from './footer';
 import { AngularLogoComponent } from './footer';
 import { WebpackLogoComponent } from './footer';
-import { CodepenComponent } from './social';
-import { FacebookComponent } from './social';
-import { GitHubComponent } from './social';
-import { LinkedinComponent } from './social';
-import { TwitterComponent } from './social';
+import { SocialIconComponent } from './social';
+import { SocialCardComponent } from './social';
 
 // Providers
 import { providers } from './shared.providers';
@@ -40,6 +39,7 @@ import { providers } from './shared.providers';
         TooltipModule.forRoot(),
         Ng2PageScrollModule.forRoot(),
         Ng2TrackScrollModule.forRoot(),
+        AgmCoreModule.forRoot(),
     ],
     declarations: [
 
@@ -51,11 +51,8 @@ import { providers } from './shared.providers';
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
-        CodepenComponent,
-        FacebookComponent,
-        GitHubComponent,
-        LinkedinComponent,
-        TwitterComponent,
+        SocialIconComponent,
+        SocialCardComponent,
     ],
     exports: [
 
@@ -69,6 +66,7 @@ import { providers } from './shared.providers';
         TooltipModule,
         Ng2PageScrollModule,
         Ng2TrackScrollModule,
+        AgmCoreModule,
 
         // Vendors
         Parallax,
@@ -78,11 +76,8 @@ import { providers } from './shared.providers';
         FooterComponent,
         AngularLogoComponent,
         WebpackLogoComponent,
-        CodepenComponent,
-        FacebookComponent,
-        GitHubComponent,
-        LinkedinComponent,
-        TwitterComponent,
+        SocialIconComponent,
+        SocialCardComponent,
     ],
     providers: [providers]
 })

@@ -5,8 +5,8 @@
 }
 
 .profile {
-    width: 400px;
-    height: 400px;
+    width: $greeting-photo-size;
+    height: $greeting-photo-size;
     display: block;
     margin: 0 auto;
     background: url('../../../../assets/images/pepe.png') no-repeat top center;

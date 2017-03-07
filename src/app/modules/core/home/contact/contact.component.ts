@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigModel, SocialModel } from '../../../../models';
 import { HelpersService } from '../../../../services';
 
 @Component({
@@ -7,10 +8,21 @@ import { HelpersService } from '../../../../services';
     styleUrls: ['contact.styles.scss']
 })
 export class ContactComponent {
-    public trackScrollConfig = {
-        position: 'bottom',
-        offset: 150
-    };
+    public trackScrollConfig = { position: 'bottom', offset: 150 };
+    private config: ConfigModel = process.env;
+    public socials: Array<SocialModel> = [
+        { url: this.config.LINKEDIN_URL, icon: 'fa-linkedin-square' },
+        { url: this.config.GITHUB_URL,   icon: 'fa-github-square' },
+        { url: this.config.CODEPEN_URL,  icon: 'fa-codepen' },
+        { url: this.config.TWITTER_URL,  icon: 'fa-twitter-square' },
+        { url: this.config.FACEBOOK_URL, icon: 'fa-facebook-official' },
+    ];
+
+    // Google Maps
+    // Location: Austin, TX
+    public latitude: number = 30.2672;
+    public longitude: number = -97.7431;
+    public zoom: number = 13;
 
     constructor(private helpersService: HelpersService) {
         //

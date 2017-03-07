@@ -1,11 +1,20 @@
 :host {
     display: block;
+    padding: 50px 0;
 }
 
-.row {
-    padding: 50px 0;
+.map {
+    .container {
+        width: $contact-map-size;
+        height: $contact-map-size;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 0;
 
-    a {
-        width: 100%;
+        .sebm-google-map-container {
+            width: $contact-map-size;
+            height: $contact-map-size;
+        }
     }
 }
+

@@ -7,6 +7,17 @@ $icon-font-path: "/assets/fonts";
 $fa-font-path: "/assets/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
 
+// Google Maps
+.gm-style {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.gmnoprint {
+    display: none;
+}
+
+// App
 p {
     line-height: 28px;
     margin-bottom: 25px;

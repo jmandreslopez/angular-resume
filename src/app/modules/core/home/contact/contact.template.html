@@ -4,10 +4,26 @@
     (trackScrollLeave)="trackScrollLeave()">
 
     <div class="row">
-        <div class="contact col-lg-2 col-lg-offset-5">
-            <a href="mailto:jmandreslopez@gmail.com" type="button" class="btn btn-default btn-lg">
-                <i class="fa fa-envelope-o fa-lg"></i> Contact Me
-            </a>
+        <div class="col-lg-6">
+            <template ngFor let-social [ngForOf]="socials">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <social-card [url]="social.url" [icon]="social.icon"></social-card>
+                    </div>
+                </div>
+            </template>
+            <div class="row">
+                <div class="contact col-lg-12">
+                    <a href="mailto:jmandreslopez@gmail.com" type="button" class="btn btn-default btn-lg">
+                        <i class="fa fa-envelope-o fa-lg"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 map">
+            <div class="container">
+                <sebm-google-map [latitude]="latitude" [longitude]="longitud" [zoom]="zoom" [zoomControl]="false" [streetViewControl]="false"></sebm-google-map>
+            </div>
         </div>
     </div>
 </div>

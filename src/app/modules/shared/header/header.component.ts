@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import { Component } from '@angular/core';
 import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
+import { ConfigModel, SocialModel } from '../../../models';
 import { ScrollService, NavigationService } from '../../../services';
 
 declare let document: any;
@@ -11,10 +12,14 @@ declare let document: any;
 	styleUrls: ['header.styles.scss']
 })
 export class HeaderComponent {
-    isScrolled = false;
-    currPos: Number = 0;
-    startPos: Number = 0;
-    changePos: Number = 15;
+    private config: ConfigModel = process.env;
+    public socials: Array<SocialModel> = [
+        { label: 'Linkedin', url: this.config.LINKEDIN_URL, icon: 'fa-linkedin-square' },
+        { label: 'GitHub',   url: this.config.GITHUB_URL,   icon: 'fa-github-square' },
+        { label: 'Codepen',  url: this.config.CODEPEN_URL,  icon: 'fa-codepen' },
+        { label: 'Twitter',  url: this.config.TWITTER_URL,  icon: 'fa-twitter-square' },
+        { label: 'Facebook', url: this.config.FACEBOOK_URL, icon: 'fa-facebook-official' },
+    ];
 
     constructor(private scrollService: ScrollService,
                 private navigationService: NavigationService) {
