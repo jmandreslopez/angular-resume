@@ -15,6 +15,8 @@ export class HomeComponent implements AfterViewInit {
         //
     }
 
+    // LIFECYCLES
+
     public ngAfterViewInit() {
         if (!_.isEmpty(this.route.snapshot.url)) {
             let element = this.route.snapshot.url[0].path;

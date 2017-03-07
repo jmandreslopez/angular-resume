@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelpersService } from '../../../../services';
+import { ScrollService } from '../../../../services';
 
 @Component({
     selector: 'greeting',
@@ -8,11 +8,13 @@ import { HelpersService } from '../../../../services';
 })
 export class GreetingComponent {
 
-    constructor(private helpersService: HelpersService) {
+    constructor(private scrollService: ScrollService) {
         //
     }
 
+    // METHODS
+
     public trackScrollEnter() {
-        this.helpersService.changeUrl('');
+        this.scrollService.changeActive('');
     }
 }

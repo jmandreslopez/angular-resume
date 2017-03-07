@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 import { ConfigModel, SocialModel } from '../../../models';
-import { ScrollService, NavigationService } from '../../../services';
+import { ScrollService, NavigationService, HelpersService } from '../../../services';
 
 declare let document: any;
 
@@ -12,6 +12,12 @@ declare let document: any;
 	styleUrls: ['header.styles.scss']
 })
 export class HeaderComponent {
+    @ViewChild('nav', { read: ElementRef }) nav: ElementRef;
+    @ViewChild('home', { read: ElementRef }) home: ElementRef;
+    @ViewChild('about', { read: ElementRef }) about: ElementRef;
+    @ViewChild('skills', { read: ElementRef }) skills: ElementRef;
+    @ViewChild('background', { read: ElementRef }) background: ElementRef;
+    @ViewChild('contact', { read: ElementRef }) contact: ElementRef;
     private config: ConfigModel = process.env;
     public socials: Array<SocialModel> = [
         { label: 'Linkedin', url: this.config.LINKEDIN_URL, icon: 'fa-linkedin-square' },
@@ -22,8 +28,77 @@ export class HeaderComponent {
     ];
 
     constructor(private scrollService: ScrollService,
-                private navigationService: NavigationService) {
-        //
+                private navigationService: NavigationService,
+                private helpersService: HelpersService) {
+
+        this.bindObservables();
+    }
+
+    // OBSERVABLES
+
+    private bindObservables() {
+        this.scrollService.getActiveObservable().subscribe((active: string) => this.onActive(active));
+    }
+
+    // EVENTS
+
+    private onActive(active: string) {
+        if (!_.isUndefined(active)) {
+
+            // Reset class 'active' elements
+            this.removeActiveElements();
+
+            // Select element based on active section
+            this.selectActive(active);
+        }
+    }
+
+    // METHODS
+
+    private removeActiveElements() {
+
+        // Get elements with class 'active'
+        let elements = this.nav.nativeElement.getElementsByClassName('active');
+        if (!_.isNil(elements)) {
+
+            // Loop elements and remove class 'active'
+            _.forEach(elements, (element: HTMLElement) => {
+                this.helpersService.removeClass(element, 'active');
+            });
+        }
+    }
+
+    private selectActive(active) {
+        let element = undefined;
+
+        // Select HTMLElement based on the active section
+        switch (active) {
+            case 'about':
+                element = this.about.nativeElement;
+                break;
+
+            case 'skills':
+                element = this.skills.nativeElement;
+                break;
+
+            case 'background':
+                element = this.background.nativeElement;
+                break;
+
+            case 'contact':
+                element = this.contact.nativeElement;
+                break;
+
+            // Home
+            default:
+                element = this.home.nativeElement;
+                break;
+        }
+
+        // Add class 'active'
+        if (!_.isUndefined(element)) {
+            this.helpersService.addClass(element, 'active');
+        }
     }
 
     public scrollTo(event: Event, target: string) {

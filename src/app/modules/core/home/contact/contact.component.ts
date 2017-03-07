@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfigModel, SocialModel } from '../../../../models';
-import { HelpersService } from '../../../../services';
+import { ScrollService } from '../../../../services';
 
 @Component({
     selector: 'contact',
@@ -8,7 +8,7 @@ import { HelpersService } from '../../../../services';
     styleUrls: ['contact.styles.scss']
 })
 export class ContactComponent {
-    public trackScrollConfig = { position: 'bottom', offset: 150 };
+    public trackScrollConfig = { position: 'bottom', offset: 200 };
     private config: ConfigModel = process.env;
     public socials: Array<SocialModel> = [
         { url: this.config.LINKEDIN_URL, icon: 'fa-linkedin-square' },
@@ -24,12 +24,14 @@ export class ContactComponent {
     public longitude: number = -97.7431;
     public zoom: number = 13;
 
-    constructor(private helpersService: HelpersService) {
+    constructor(private scrollService: ScrollService) {
         //
     }
 
+    // METHODS
+
     public trackScrollEnter() {
-        this.helpersService.changeUrl('contact');
+        this.scrollService.changeActive('contact');
     }
 
     public trackScrollLeave() {
@@ -39,6 +41,6 @@ export class ContactComponent {
         // to the bottom and in some cases, when scrolling
         // up the background section is still active preventing
         // to trigger the URL change
-        this.helpersService.changeUrl('background');
+        this.scrollService.changeActive('background');
     }
 }

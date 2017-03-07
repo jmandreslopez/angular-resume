@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelpersService } from '../../../../services';
+import { ScrollService } from '../../../../services';
 
 @Component({
 	selector: 'background',
@@ -8,11 +8,13 @@ import { HelpersService } from '../../../../services';
 })
 export class BackgroundComponent {
 
-    constructor(private helpersService: HelpersService) {
+    constructor(private scrollService: ScrollService) {
         //
     }
 
+    // METHODS
+
     public trackScrollEnter() {
-        this.helpersService.changeUrl('background');
+        this.scrollService.changeActive('background');
     }
 }

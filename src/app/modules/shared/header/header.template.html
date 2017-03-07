@@ -4,12 +4,12 @@
             <div class="nav navbar-nav navbar-left">
                 <a routerLink="./" routerLinkActive="active" class="logo" title="Jose Andres - Software Engineer">JA</a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a (click)="scrollTo($event, 'home')" href="/">Home</a></li>
-                <li><a (click)="scrollTo($event, 'about')" href="/about">About</a></li>
-                <li><a (click)="scrollTo($event, 'skills')" href="/skills">Skills</a></li>
-                <li><a (click)="scrollTo($event, 'background')" href="/background">Background</a></li>
-                <li><a (click)="scrollTo($event, 'contact')" href="/contact">Contact</a></li>
+            <ul #nav class="nav navbar-nav navbar-right">
+                <li #home class="active"><a (click)="scrollTo($event, 'home')" href="/">Home</a></li>
+                <li #about><a  (click)="scrollTo($event, 'about')" href="/about">About</a></li>
+                <li #skills><a (click)="scrollTo($event, 'skills')" href="/skills">Skills</a></li>
+                <li #background><a (click)="scrollTo($event, 'background')" href="/background">Background</a></li>
+                <li #contact><a (click)="scrollTo($event, 'contact')" href="/contact">Contact</a></li>
                 <li class="networks">
                     <social-icon *ngFor="let social of socials" [url]="social.url" [icon]="social.icon" [label]="social.label"></social-icon>
                 </li>
